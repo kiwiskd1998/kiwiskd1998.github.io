@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Python基础 | ò.ó</title><meta name="keywords" content="工作 Python"><meta name="author" content="Kaidi Shi,kiwiskd1998@163.com"><meta name="copyright" content="Kaidi Shi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python基础主要内容主要的学习内容包含有字符编码、常用的容器（list、tuple、set、dict）、条件判断&amp;循环三部分内容 1.字符编码由于计算机最早由美国人发明，因此字符编码最早是ASCII码，最早只有$127$个字符被编码到计算机中。然而后来各个国家都分别使用计算机，因此每个国家都分别制定相应的标准满足各国的字符，例如中国制定的GB2312，用来将中文编码进去，而一个中文最少">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础">
+<meta property="og:url" content="https://www.czspp.com/2022/11/26/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1)/index.html">
+<meta property="og:site_name" content="ò.ó">
+<meta property="og:description" content="Python基础主要内容主要的学习内容包含有字符编码、常用的容器（list、tuple、set、dict）、条件判断&amp;循环三部分内容 1.字符编码由于计算机最早由美国人发明，因此字符编码最早是ASCII码，最早只有$127$个字符被编码到计算机中。然而后来各个国家都分别使用计算机，因此每个国家都分别制定相应的标准满足各国的字符，例如中国制定的GB2312，用来将中文编码进去，而一个中文最少">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2022-11-26T12:38:38.000Z">
+<meta property="article:modified_time" content="2022-11-26T12:38:45.000Z">
+<meta property="article:author" content="Kaidi Shi">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.czspp.com/2022/11/26/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1)/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-26 20:38:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">ò.ó</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Python基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-26T12:38:38.000Z" title="发表于 2022-11-26 20:38:38">2022-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-26T12:38:45.000Z" title="更新于 2022-11-26 20:38:45">2022-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h1><h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><p>主要的学习内容包含有字符编码、常用的容器（<code>list</code>、<code>tuple</code>、<code>set</code>、<code>dict</code>）、条件判断&amp;循环三部分内容</p>
+<h4 id="1-字符编码"><a href="#1-字符编码" class="headerlink" title="1.字符编码"></a>1.字符编码</h4><p>由于计算机最早由美国人发明，因此字符编码最早是<code>ASCII</code>码，最早只有$127$个字符被编码到计算机中。然而后来各个国家都分别使用计算机，因此每个国家都分别制定相应的标准满足各国的字符，例如中国制定的<code>GB2312</code>，用来将中文编码进去，而一个中文最少需要两个字节。这样的结果是各个国家都有复杂的标准，在多语言混合的文本中，显示出来会有乱码。</p>
+<p>因此为了解决该问题出现了<code>Unicode</code>字符集，该字符集将所有的语言编码到一套编码中，<code>Unicode</code>的主要思想则是将字符编码为两个字符，例如：</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221126210643803.png" alt="image-20221126210643803"></p>
+<p>然而，该编码存在的问题是会浪费一定的存储空间，例如原有的<code>ASCII</code>只需要一个字节，然而<code>Unicode</code>编码会导致多浪费一个字节，为了解决这种问题，产生了<code>UTF-8</code>编码，<code>UTF-8</code>编码是一种“可变长编码”，该编码可以根据不同的数字大小编写为$1\sim6$个字节。该编码虽然减少了内存的占用，并且兼容<code>ASCII</code>码，但出现的问题是操作起来比较复杂，操作起来耗时较多。最终三种编码的关系如下图：</p>
+<p><img src="Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1).assets/image-20221126211330149.png" alt="image-20221126211330149"></p>
+<p>因此在使用过程中，需要存储到硬盘或者传输时，采用的是<code>UTF-8</code>编码，而在进行内存中编辑时采用的Unicode编码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：之所有在内存中使用Unicode编码而不是使用UTF-8编码是因为，Unicode编码的长度统一方便，内存操作便捷。</span><br></pre></td></tr></table></figure>
+
+<p>下面举例几个使用场景：</p>
+<p>1）记事本编辑文本。记事本在操作时为了操作的速度，采用字符长度统一的<code>Unicode</code>编码，但是在保存到硬盘中时将其转换为<code>UTF-8</code>编码。</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221126211725833.png" alt="image-20221126211725833"></p>
+<p>2）浏览网页。在服务器端存储<code>Unicode</code>编码，而在传输时采用<code>UTF-8</code>编码，为了传输快速。</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221126212046939.png" alt="image-20221126212046939"></p>
+<h4 id="2-Python中的字符编码"><a href="#2-Python中的字符编码" class="headerlink" title="2.Python中的字符编码"></a>2.Python中的字符编码</h4><p>Python3中字符编码是以<code>Unicode</code>编码的。Python中提供了如下字符编码函数：</p>
+<ul>
+<li><code>ord(char)</code>用于获取字符的整数表示。</li>
+<li><code>chr(int)</code>用于将编码转换为对应的字符。</li>
+</ul>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221126213014043.png" alt="image-20221126213014043"></p>
+<p>Python中的字符串时<code>str</code>，在内存中是以<code>Unicode</code>表示的，一个字符对应若干个字节，因此如果在网络上传输或者保存在磁盘上时，需要将<code>str</code>变成以字节为单位的<code>bytes</code>。</p>
+<p>Python中对<code>bytes</code>类型的数据用<code>b</code>前缀的单引号或者双引号表示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="string">b&#x27;abc&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>str.encode(&#39;utf-8/ascii&#39;);</code>表示将以<code>Unicode</code>编码的字符串编码为<code>bytes</code>。</li>
+<li><code>bytes.decode(&#39;acsii&#39;)</code>表示将<code>bytes</code>转换为<code>str</code>。</li>
+</ul>
+<p><img src="Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1).assets/image-20221127112256558.png" alt="image-20221127112256558"></p>
+<ul>
+<li><code>len(str)</code>用于判断字符串中存在几个字符。</li>
+<li><code>len(b&#39;str&#39;)</code>用于计算字符串占用几个字节。</li>
+</ul>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127112734728.png" alt="image-20221127112734728"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注：为了避免乱码问题应该始终坚持UTF-8编码对str和bytes进行转换。此外再含有中文的文件中应该制定保存为UTF-8编码。当Python解释器读取文件时应该在开头加入如下注释。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一般在文件写如下开头</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python3 </span></span><br><span class="line"><span class="comment">#-*- coding: utf-8  -*-      </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#注释1：告诉Linux/OS X系统，这是一个Python可执行程序，Windows下会忽略该注释。</span></span><br><span class="line"><span class="comment">#注释2：告诉Python解释器，按照UTF-8编码，否则可能会出现乱码。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-格式化字符串"><a href="#3-格式化字符串" class="headerlink" title="3.格式化字符串"></a>3.格式化字符串</h4><p>方式一：采用<code>%</code>运算符格式化。在字符串内部，<code>%s</code>表示用字符串替换，<code>%d</code>表示用整数替换，有几个<code>%?</code>占位符，后面跟几个变量或者值，顺序要对应好。如果只有一个<code>%s</code>，则括号可以省略。常用的占位符如下所示：</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127135051837.png" alt="  "></p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127155629299.png" alt="image-20221127155629299"></p>
+<p>案例：</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127135734494.png" alt="image-20221127135734494"></p>
+<p>方式二：<code>format</code>格式化。使用字符串中的<code>format</code>方法，它会用传入的参数依次替换字符串中的占位符<code>&#123;0&#125;、&#123;1&#125;、&#123;2&#125;....</code>。</p>
+<p>案例：</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127135845893.png" alt="image-20221127135845893"></p>
+<p>方式三：采用<code>f-string</code>。使用以<code>f</code>为开头的字符串，成为<code>f-string</code>，如果字符串中存在有{变量}，则会以变量替换该位置。</p>
+<p>案例：</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127140032496.png" alt="image-20221127140032496"></p>
+<h3 id="3-常用容器"><a href="#3-常用容器" class="headerlink" title="3.常用容器"></a>3.常用容器</h3><p>主要记录<code>list</code>、<code>tuple</code>、<code>dict</code>和<code>set</code>的使用方法。</p>
+<h4 id="1-list"><a href="#1-list" class="headerlink" title="1.list"></a>1.<code>list</code></h4><p><code>list</code>是Python内置的一种数据类型，是一个有序的集合，可以随时添加和删除其中的元素。采用一个<code>[元素1、元素2、...]</code>代表一个<code>list</code>。其底层实现是通过<strong>双向链表结构实现</strong>的。列表是无序可重复的。</p>
+<ul>
+<li>通过<code>变量名称 = []</code>的方式<strong>定义一个链表</strong>。</li>
+<li><code>len(listname)</code>可以<strong>获得<code>list</code>元素的个数</strong>。</li>
+<li><code>listname[index]</code><strong>获取<code>list</code>中的某个元素</strong>。<code>index</code>为$-1$或者<code>-index</code>表示倒数第几个元素。</li>
+<li><code>append(element)</code>向<code>list</code>的<strong>末尾添加一个元素</strong>。</li>
+<li><code>insert(pos,element)</code>向<code>list</code>的<strong>指定位置添加一个元素</strong>。</li>
+<li><code>pop()</code><strong>删除末尾元素。</strong></li>
+<li><code>pop(pos)</code><strong>删除索引位置为<code>pos</code>的元素</strong>。</li>
+<li><code>sort()</code><strong>排序</strong>。</li>
+<li><code>reverse()</code><strong>反转</strong>列表。</li>
+</ul>
+<p>注1：列表中的元素类型可以不相同。该元素也可以是另外一个列表。</p>
+<p><img src="Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1).assets/image-20221127163232384.png" alt="image-20221127163232384"></p>
+<h4 id="2-tuple"><a href="#2-tuple" class="headerlink" title="2.tuple"></a>2.<code>tuple</code></h4><p><code>tuple</code>也是一种有序列表。和<code>list</code>的主要区别在于<code>tuple</code>一旦初始化不能修改。但是如果一个可变数据类型存储在<code>tuple</code>中只有该元素可以修改。采用<code>(元素1、元素2、...)</code>代表一个<code>tuple</code>。</p>
+<ul>
+<li>通过<code>变量名称=(元素1,元素2,...)</code>来定义一个<code>tuple</code>。</li>
+<li>如果定义只包含一个元素的<code>tuple</code>只能通过<code>t=(1,)</code>元素加上逗号的方式进行定义，否则会定义为一个变量。</li>
+<li><code>len(tuple)</code>可以用来获取<code>tuple</code>的元素数量。</li>
+<li><code>del tuplename</code>用来删除整个<code>tuple</code>。</li>
+</ul>
+<h4 id="3-dict"><a href="#3-dict" class="headerlink" title="3.dict"></a>3.<code>dict</code></h4><p>python中的<code>dict</code>和别的语言中的<code>map</code>类似，使用键-值（<code>key-value</code>）存储，查找速度高。底层实现是<strong>通过<code>hashtable</code>实现</strong>的。一个<code>key</code>只能对应一个<code>value</code>，所以多次对一个<code>key</code>放入<code>value</code>时，后面的值会将前面的值覆盖掉。</p>
+<ul>
+<li>通过<code>dictname = &#123;key1:value1, key2:value2, key3:value3&#125;;</code></li>
+<li>还可以通过<code>dictname[key4]=value4</code>来新添加一个元素。</li>
+<li>通过<code>key in dictname</code>或者<code>get()</code>方法来判断是否存在某个<code>key</code>，可以返回<code>None</code>也可以指定自己的<code>value</code>。</li>
+</ul>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127165911210.png" alt="image-20221127165911210"></p>
+<h4 id="4-set"><a href="#4-set" class="headerlink" title="4.set"></a>4.<code>set</code></h4><p><code>set</code>和<code>dict</code>类似，也是一组<code>key</code>的集合，但是不存储<code>value</code>。由于<code>key</code>不可以重复，所以<code>set</code>中不存在重复的<code>key</code>。创建一个<code>set</code>时需要将一个<code>list</code>作为输入参数。</p>
+<ul>
+<li>通过<code>setname = set([1,2,3])</code>来创建一个<code>set</code>，当<code>list</code>的元素重复时，<code>set</code>也会自动去重。</li>
+<li><code>setname.add(key)</code>来向<code>set</code>中加入一个元素。</li>
+<li><code>setname.remove(key)</code>从<code>set</code>中去除一个元素。</li>
+<li>对于<code>set</code>也可以看成数学意义上的无序和无重复元素的集合。因此对两个<code>set</code>进行<code>&amp;</code>和<code>|</code>进行数学上的交集、并集操作。</li>
+</ul>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127172631929.png" alt="image-20221127172631929"></p>
+<h3 id="3-不可变对象修改的原理"><a href="#3-不可变对象修改的原理" class="headerlink" title="3.不可变对象修改的原理"></a>3.不可变对象修改的原理</h3><p>python中<code>str</code>是一个不可变对象，其中包含有<code>replace(schar,dchar)</code>方法，用于对<code>schar</code>进行替换为<code>dchar</code>。如下所示：</p>
+<p><img src="https://skdtypora1.oss-cn-beijing.aliyuncs.com/img/image-20221127173933004.png" alt="image-20221127173933004"></p>
+<p>在上述的案例中，<code>ss</code>是一个变量，指向<code>abcd</code>这个对象，当要进行修改其中的字符时，其实是按照新的规则新生成一个同样大小的字符串。</p>
+<h3 id="4-条件判断-amp-循环"><a href="#4-条件判断-amp-循环" class="headerlink" title="4.条件判断&amp;循环"></a>4.条件判断&amp;循环</h3><p><strong>1）条件判断</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅包含有if语句</span></span><br><span class="line"><span class="keyword">if</span> 条件：</span><br><span class="line">	执行语句</span><br><span class="line"></span><br><span class="line"><span class="comment"># ifelse结构</span></span><br><span class="line"><span class="keyword">if</span> 条件<span class="number">1</span>:</span><br><span class="line">    执行语句<span class="number">1</span></span><br><span class="line"><span class="keyword">elif</span> 条件<span class="number">2</span>:</span><br><span class="line">    执行语句<span class="number">2</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    执行语句<span class="number">3</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2）循环结构</strong></p>
+<p>Python中支持<code>for in</code>循环和<code>while</code>循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># for .. in 循环</span><br><span class="line">for 变量名 in 容器:</span><br><span class="line">	执行语句</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>range(num)</code>可以生成$0 \sim num-1$的的整数序列，可以通过<code>list()</code>转换为<code>list</code>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#while循环</span></span><br><span class="line"><span class="keyword">while</span> 条件:</span><br><span class="line">	执行语句;</span><br><span class="line">    </span><br><span class="line"><span class="comment"># break可以用于跳出循环。</span></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:kiwiskd1998@163.com">Kaidi Shi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.czspp.com/2022/11/26/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1)/">https://www.czspp.com/2022/11/26/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.czspp.com" target="_blank">ò.ó</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/11/17/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><img class="next-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++中的优先队列</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kaidi Shi</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Python基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1.字符编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Python%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2.Python中的字符编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">3.格式化字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">1.0.2.</span> <span class="toc-text">3.常用容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-list"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">1.list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-tuple"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2.tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-dict"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">3.dict</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-set"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">4.set</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E4%BF%AE%E6%94%B9%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.3.</span> <span class="toc-text">3.不可变对象修改的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD-amp-%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.条件判断&amp;循环</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/26/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1)/" title="Python基础"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python基础"/></a><div class="content"><a class="title" href="/2022/11/26/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AF%95(1)/" title="Python基础">Python基础</a><time datetime="2022-11-26T12:38:38.000Z" title="发表于 2022-11-26 20:38:38">2022-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/17/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" title="C++中的优先队列"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++中的优先队列"/></a><div class="content"><a class="title" href="/2022/11/17/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" title="C++中的优先队列">C++中的优先队列</a><time datetime="2022-11-17T06:52:40.000Z" title="发表于 2022-11-17 14:52:40">2022-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/12/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8_%E4%BD%B3%E6%85%A7/" title="字节跳动_JIAHUI"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字节跳动_JIAHUI"/></a><div class="content"><a class="title" href="/2022/10/12/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8_%E4%BD%B3%E6%85%A7/" title="字节跳动_JIAHUI">字节跳动_JIAHUI</a><time datetime="2022-10-12T05:42:13.000Z" title="发表于 2022-10-12 13:42:13">2022-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E4%B8%AD%E5%85%B4_%E6%9C%AA%E6%9D%A5%E9%A2%86%E5%86%9B/" title="中兴_未来领军"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中兴_未来领军"/></a><div class="content"><a class="title" href="/2022/08/21/%E4%B8%AD%E5%85%B4_%E6%9C%AA%E6%9D%A5%E9%A2%86%E5%86%9B/" title="中兴_未来领军">中兴_未来领军</a><time datetime="2022-08-21T10:39:22.000Z" title="发表于 2022-08-21 18:39:22">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/%E8%81%94%E5%8F%91%E7%A7%91_%E6%8F%90%E8%B5%B7%E6%89%B9%20/" title="联发科提前批"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="联发科提前批"/></a><div class="content"><a class="title" href="/2022/08/21/%E8%81%94%E5%8F%91%E7%A7%91_%E6%8F%90%E8%B5%B7%E6%89%B9%20/" title="联发科提前批">联发科提前批</a><time datetime="2022-08-21T10:33:50.000Z" title="发表于 2022-08-21 18:33:50">2022-08-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Kaidi Shi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
